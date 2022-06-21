@@ -1,0 +1,50 @@
+.category_slidebar {
+    padding: 30px 16px;
+    border: .1px solid #ccc;
+}
+
+.category_slidebar h2 {
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.list_category {
+    /* padding-left: 0; */
+    list-style: none;
+}
+
+.item_category {
+    margin-bottom: 8px;
+}
+
+.list_category .cate_link {
+    color: #666;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.list_category .item_category:hover .cate_link {
+    color: #eb8f73;
+}
+
+.form-control.input_margin {
+    margin-top: 0 !important;
+}
+
+.product_filter {
+    margin: 0 2px;
+    padding: 12px;
+    background-color: rgb(227, 219, 219);
+    display: flex;
+    align-items: center;
+}
+
+.filter_table {
+    margin-right: 12px;
+}
+
+.filter_ul i,
+.filter_table i {
+    font-size: 20px;
+    cursor: pointer;
+}
