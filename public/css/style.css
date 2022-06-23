@@ -373,6 +373,8 @@ html {
     margin-top: 50px;
 }
 
+
+
 .add-to-cart a {
     position: absolute;
     bottom: 0;
@@ -1082,7 +1084,7 @@ table td {
 
 .body_cart {
     padding: 0 25px;
-    height: 450px;
+    height: 75vh;
     overflow-y: scroll;
 
 
@@ -1609,7 +1611,7 @@ a {
 .margin:nth-child(4),
 .margin:nth-child(5),
 .margin:nth-child(6) {
-    margin-top: 20px;
+    margin-top: 32px;
 }
 
 .image_item {
@@ -1624,4 +1626,8 @@ a {
 .search img {
     object-fit: contain;
     margin-left: 5px;
+}
+
+.js__formcart {
+    cursor: pointer;
 }

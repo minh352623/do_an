@@ -17,6 +17,9 @@
 
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/style.css' ?>">
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/product.css' ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/cart.css' ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/DetailProduct.css' ?>">
+
 
 
     <title>Ivy Modal</title>
@@ -63,6 +66,8 @@
                                     <span id="js__box_user"><i class="fa fa-user"></i>
                                         <ul class="option_user">
                                             <li><a href="">Cập nhật thông tin</a></li>
+                                            <li><a href="<?php echo _WEB_HOST_ROOT . '/MyBill' ?>">Đơn hàng của bạn</a></li>
+
                                             <li><a href="">Quên mật khẩu</a></li>
 
                                             <li><a href="Login/Out">Thoát</a></li>
@@ -70,7 +75,18 @@
 
                                         </ul>
                                     </span>
-                                    <a class="js__formcart"><i class="fa fa-bag-shopping"></i><span>5</span></a>
+                                    <a class="js__formcart"><i class="fa fa-bag-shopping"></i>
+                                        <?php
+                                        if (isset($_SESSION['cart'])) {
+                                            $number = 0;
+                                            foreach ($_SESSION['cart'] as $item) {
+                                                $number += $item['soluong'];
+                                            }
+                                            echo '<span>' . $number . '</span>';
+                                        }
+                                        ?>
+
+                                    </a>
                                 </div>
                             </div>
                         </div>

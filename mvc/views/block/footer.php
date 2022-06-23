@@ -44,165 +44,50 @@
 
                 <div class="cart_container">
                     <div class="header_cart">
-                        <h2>Giỏ hàng <span class="js__numberincart">4</span></h2>
+                        <h2>Giỏ hàng
+                            <?php
+                            if (isset($_SESSION['cart'])) {
+                                $number = 0;
+                                foreach ($_SESSION['cart'] as $item) {
+                                    $number += $item['soluong'];
+                                }
+                                echo '<span class="js__numberincart">' . $number . '</span>';
+                            }
+                            ?>
+
+                        </h2>
                         <span class="btn_close"><i class="fa fa-close"></i></span>
                     </div>
                     <div class="body_cart">
-                        <div class="product_item">
-                            <div class="product_item_img">
-                                <img src="https://pubcdn.ivymoda.com/files/product/thumab/400/2022/06/06/fce8748d40368561a99299cb91d5d0fe.jpg" alt="">
-                            </div>
-                            <div class="product_item_text">
-                                <span>Áo polo suông</span><br>
-                                <div class="product_size_color">
-                                    <span>Màu sắc: <img src="https://pubcdn2.ivymoda.com/images/color/050.png" alt=""></span>
-                                    <span>Size: <span>D</span></span>
+                        <?php
+                        if (isset($_SESSION['cart'])) {
+                            foreach ($_SESSION['cart'] as $item) {
+                                echo '<div class="product_item" data-id="' . $item['id'] . '">
+                                <div class="product_item_img">
+                                    <img src="' . _WEB_HOST_ROOT . '/uploads/' . $item['image'] . '" alt="">
                                 </div>
-
-                                <div class="number_price">
-                                    <div class="cart_list_left">
-                                        <div class="cart_item_left cart_item_number">-</div>
-                                        <span class="num_cart">5</span>
-                                        <div class="cart_item_right cart_item_number">+</div>
+                                <div class="product_item_text">
+                                    <span>' . $item['name'] . '</span><br>
+                                 
+                        
+                                    <div class="number_price">
+                                        <div class="cart_list_left">
+                                            <div class="cart_item_left cart_item_number">-</div>
+                                            <span class="num_cart">' . $item['soluong'] . '</span>
+                                            <div class="cart_item_right cart_item_number">+</div>
+                                        </div>
+                        
+                                        <div class="price_cart">
+                                            <span>' . $item['price'] . '<b>đ</b></span>
+                                        </div>
                                     </div>
-
-                                    <div class="price_cart">
-                                        <span>690.000 <b>đ</b></span>
-                                    </div>
+                        
                                 </div>
+                            </div>';
+                            }
+                        }
 
-                            </div>
-                        </div>
-
-                        <div class="product_item">
-                            <div class="product_item_img">
-                                <img src="https://pubcdn.ivymoda.com/files/product/thumab/400/2022/06/06/fce8748d40368561a99299cb91d5d0fe.jpg" alt="">
-                            </div>
-                            <div class="product_item_text">
-                                <span>Áo polo suông</span><br>
-                                <div class="product_size_color">
-                                    <span>Màu sắc: <img src="https://pubcdn2.ivymoda.com/images/color/050.png" alt=""></span>
-                                    <span>Size: <span>D</span></span>
-                                </div>
-
-                                <div class="number_price">
-                                    <div class="cart_list_left">
-                                        <div class="cart_item_left cart_item_number">-</div>
-                                        <span class="num_cart">5</span>
-                                        <div class="cart_item_right cart_item_number">+</div>
-                                    </div>
-
-                                    <div class="price_cart">
-                                        <span>690.000 <b>đ</b></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="product_item">
-                            <div class="product_item_img">
-                                <img src="https://pubcdn.ivymoda.com/files/product/thumab/400/2022/06/06/fce8748d40368561a99299cb91d5d0fe.jpg" alt="">
-                            </div>
-                            <div class="product_item_text">
-                                <span>Áo polo suông</span><br>
-                                <div class="product_size_color">
-                                    <span>Màu sắc: <img src="https://pubcdn2.ivymoda.com/images/color/050.png" alt=""></span>
-                                    <span>Size: <span>D</span></span>
-                                </div>
-
-                                <div class="number_price">
-                                    <div class="cart_list_left">
-                                        <div class="cart_item_left cart_item_number">-</div>
-                                        <span class="num_cart">5</span>
-                                        <div class="cart_item_right cart_item_number">+</div>
-                                    </div>
-
-                                    <div class="price_cart">
-                                        <span>690.000 <b>đ</b></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="product_item">
-                            <div class="product_item_img">
-                                <img src="https://pubcdn.ivymoda.com/files/product/thumab/400/2022/06/06/fce8748d40368561a99299cb91d5d0fe.jpg" alt="">
-                            </div>
-                            <div class="product_item_text">
-                                <span>Áo polo suông</span><br>
-                                <div class="product_size_color">
-                                    <span>Màu sắc: <img src="https://pubcdn2.ivymoda.com/images/color/050.png" alt=""></span>
-                                    <span>Size: <span>D</span></span>
-                                </div>
-
-                                <div class="number_price">
-                                    <div class="cart_list_left">
-                                        <div class="cart_item_left cart_item_number">-</div>
-                                        <span class="num_cart">5</span>
-                                        <div class="cart_item_right cart_item_number">+</div>
-                                    </div>
-
-                                    <div class="price_cart">
-                                        <span>690.000 <b>đ</b></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="product_item">
-                            <div class="product_item_img">
-                                <img src="https://pubcdn.ivymoda.com/files/product/thumab/400/2022/06/06/fce8748d40368561a99299cb91d5d0fe.jpg" alt="">
-                            </div>
-                            <div class="product_item_text">
-                                <span>Áo polo suông</span><br>
-                                <div class="product_size_color">
-                                    <span>Màu sắc: <img src="https://pubcdn2.ivymoda.com/images/color/050.png" alt=""></span>
-                                    <span>Size: <span>D</span></span>
-                                </div>
-
-                                <div class="number_price">
-                                    <div class="cart_list_left">
-                                        <div class="cart_item_left cart_item_number">-</div>
-                                        <span class="num_cart">5</span>
-                                        <div class="cart_item_right cart_item_number">+</div>
-                                    </div>
-
-                                    <div class="price_cart">
-                                        <span>690.000 <b>đ</b></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="product_item">
-                            <div class="product_item_img">
-                                <img src="https://pubcdn.ivymoda.com/files/product/thumab/400/2022/06/06/fce8748d40368561a99299cb91d5d0fe.jpg" alt="">
-                            </div>
-                            <div class="product_item_text">
-                                <span>Áo polo suông</span><br>
-                                <div class="product_size_color">
-                                    <span>Màu sắc: <img src="https://pubcdn2.ivymoda.com/images/color/050.png" alt=""></span>
-                                    <span>Size: <span>D</span></span>
-                                </div>
-
-                                <div class="number_price">
-                                    <div class="cart_list_left">
-                                        <div class="cart_item_left cart_item_number">-</div>
-                                        <span class="num_cart">5</span>
-                                        <div class="cart_item_right cart_item_number">+</div>
-                                    </div>
-
-                                    <div class="price_cart">
-                                        <span>690.000 <b>đ</b></span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                        ?>
 
 
 
@@ -211,10 +96,19 @@
 
                     <div class="footer_cart">
                         <div class="total_price">
-                            <span>Tổng cộng: <b>2.760.000đ</b></span>
+                            <?php
+                            if (isset($_SESSION['cart'])) {
+                                $money = 0;
+                                foreach ($_SESSION['cart'] as $item) {
+                                    $money += $item['soluong'] * $item['price'];
+                                }
+                                echo '<span>Tổng cộng: <b>' . product_price($money) . '</b></span>';
+                            }
+                            ?>
+
                         </div>
                         <div class="login_cart_box">
-                            <a class="login_cart" href="">Đăng nhập</a>
+                            <a class="login_cart" href="<?php echo _WEB_HOST_ROOT . '/Cart' ?>">Xem Giỏ Hàng</a>
                         </div>
 
 
@@ -228,7 +122,6 @@
 
 
             <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
             <!-- Initialize Swiper -->
             <script>
@@ -241,6 +134,7 @@
                 });
             </script>
             <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
             <script>
                 AOS.init();
             </script>
@@ -248,9 +142,12 @@
             <script src="<?php echo _WEB_HOST_TEMPLATE . '/js/bootstrap.min.js' ?>"></script>
             <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
             <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
             <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
             <script src="<?php echo _WEB_HOST_TEMPLATE . '/js/main.js' ?>"></script>
             <script src="<?php echo _WEB_HOST_TEMPLATE . '/js/boxmodal.js' ?>"></script>
+            <script src="<?php echo _WEB_HOST_TEMPLATE . '/js/product.js' ?>"></script>
 
 
             </body>
