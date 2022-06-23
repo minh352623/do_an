@@ -72,7 +72,7 @@
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="row">
+                        <div class="row" style="min-height:760px; max-height:760px">
                             <?php
                             if (isset($data['product']) && $data['product']) {
                                 $keymain = 0;
@@ -87,7 +87,7 @@
                                                     <div class="overlay_sale">
             
                                                         <p class="price">' . product_price($item['price'])  . '</p>
-                                                        <div class="add-to-cart cart_sale">
+                                                        <div data-id="' . $item['id'] . '" class="add-to-cart cart_sale">
                                                             <a href=""><i class="fa fa-bag-shopping"></i></a>
             
                                                         </div>
@@ -107,7 +107,7 @@
                                                     <div class="overlay_sale">
     
                                                         <p class="price">' . product_price($item['price'])  . '</p>
-                                                        <div class="add-to-cart cart_sale  cart_sale_child">
+                                                        <div data-id="' . $item['id'] . '" class="add-to-cart cart_sale  cart_sale_child">
                                                             <a href=""><i class="fa fa-bag-shopping"></i></a>
     
                                                         </div>
@@ -131,7 +131,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="row">
+                        <div class="row" style="min-height:760px; max-height:760px">
                             <?php
                             if (isset($data['product']) && $data['product']) {
 
@@ -148,7 +148,7 @@
                                                     <div class="overlay_sale">
             
                                                         <p class="price">' . product_price($item['price'])  . '</p>
-                                                        <div class="add-to-cart cart_sale">
+                                                        <div data-id="' . $item['id'] . '" class="add-to-cart cart_sale">
                                                             <a href=""><i class="fa fa-bag-shopping"></i></a>
             
                                                         </div>
@@ -168,7 +168,7 @@
                                                     <div class="overlay_sale">
     
                                                         <p class="price">' . product_price($item['price'])  . '</p>
-                                                        <div class="add-to-cart cart_sale  cart_sale_child">
+                                                        <div data-id="' . $item['id'] . '" class="add-to-cart cart_sale  cart_sale_child">
                                                             <a href=""><i class="fa fa-bag-shopping"></i></a>
     
                                                         </div>
@@ -216,17 +216,17 @@
                     echo '<div data-aos="fade-left"
                     data-aos-anchor-placement="bottom-bottom" data-aos-easing="linear"
                     data-aos-duration="800" class="col-24 produca_item mt-5">
-                    <a href="' . _WEB_HOST_ROOT . '/Product/Detail/' . $item['id'] . '"><img src="' . _WEB_HOST_ROOT . '/uploads/' . $item['image'] . '" alt=""></a>
+                    <a class="image_product-home" href="' . _WEB_HOST_ROOT . '/Product/Detail/' . $item['id'] . '"><img src="' . _WEB_HOST_ROOT . '/uploads/' . $item['image'] . '" alt=""></a>
                     <div class="info-ticket ticket-news">new</div>
                   
                     <div class="tittle_produca mt-2">
-                        <a href="">' . $item['name'] . '</a>
+                        <a href="' . _WEB_HOST_ROOT . '/Product/Detail/' . $item['id'] . '">' . $item['name'] . '</a>
                     </div>
                     <div class="pricebox mt-4">
                         <span class="price">' . product_price($item['price'])  . '</span>
                     </div>
-                    <div class="add-to-cart">
-                        <a href=""><i class="fa fa-bag-shopping"></i></a>
+                    <div class="add-to-cart" data-id="' . $item['id'] . '">
+                        <a href="" ><i class="fa fa-bag-shopping"></i></a>
     
                     </div>
                   

@@ -46,7 +46,7 @@ class DB
         } catch (PDOException $e) {
             throw $e;
         } finally {
-            unset($this->conn);
+            // unset($this->conn);
         }
     }
     /**
@@ -68,7 +68,7 @@ class DB
         } catch (PDOException $e) {
             throw $e;
         } finally {
-            unset($this->conn);
+            // unset($this->conn);
         }
     }
     /**
@@ -90,7 +90,7 @@ class DB
         } catch (PDOException $e) {
             throw $e;
         } finally {
-            unset($this->conn);
+            // unset($this->conn);
         }
     }
     /**

@@ -64,8 +64,8 @@
                     <div class="pricebox mt-4">
                         <span class="price">' . product_price($item['price'])  . '</span>
                     </div>
-                    <div class="add-to-cart">
-                        <a href=""><i class="fa fa-bag-shopping"></i></a>
+                    <div data-id="' . $item['id'] . '" class="add-to-cart">
+                        <a href="' . _WEB_HOST_ROOT . '/Product/addProduct"><i class="fa fa-bag-shopping"></i></a>
     
                     </div>
                   

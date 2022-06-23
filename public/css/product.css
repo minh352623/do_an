@@ -48,3 +48,26 @@
     font-size: 20px;
     cursor: pointer;
 }
+
+
+.add-to-cart p {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    background: #221F20;
+    border-radius: 8px 0;
+    width: 32px;
+    height: 32px;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    margin-right: 7px;
+}
+
+.add-to-cart p i {
+    font-size: 13px;
+}

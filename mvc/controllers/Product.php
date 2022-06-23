@@ -16,4 +16,10 @@ class Product extends Controller
         $products = $this->product->list_sp(0, "");
         $this->view("master2", ['page' => 'product', "product" => $products, 'cate' => $cate]);
     }
+    function Detail($id)
+    {
+        $product = $this->product->one_pro($id);
+        $listProductSame = $this->product->product_same($product['iddm'], $product['id']);
+        $this->view("master2", ['page' => 'productDetail', "product" => $product, 'productSames' => $listProductSame]);
+    }
 }
