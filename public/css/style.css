@@ -1024,6 +1024,8 @@ table td {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 2;
+    transition: all 0.25s linear;
+
     font-family: 'Montserrat', sans-serif;
     display: none;
 }
@@ -1052,6 +1054,7 @@ table td {
     right: 0;
     border: 1px solid #E7E8E9;
     border-radius: 4px;
+    transition: all 0.25s linear;
     animation: animationform ease-in .4s;
 }
 

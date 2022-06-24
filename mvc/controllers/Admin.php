@@ -144,8 +144,8 @@ class Admin extends Controller
             $price = $_POST['giasp'];
             $description = $_POST['motasp'];
             $image = $_FILES['hinhsp']['name'];
-            echo $image;
-            echo $iddm;
+            // echo $image;
+            // echo $iddm;
 
             $target_dir = $path_img;
             $target_file = $target_dir . basename($_FILES["hinhsp"]["name"]);

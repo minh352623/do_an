@@ -19,10 +19,12 @@
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/product.css' ?>">
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/cart.css' ?>">
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/DetailProduct.css' ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/user.css' ?>">
 
 
 
-    <title>Ivy Modal</title>
+
+    <title>Cloth</title>
 </head>
 
 <body>
@@ -57,20 +59,33 @@
 
                         <div class="col-5 d-flex justify-content-end align-items-center">
                             <div class="icon_shop">
-                                <div class="search">
-                                    <button><img src="<?php echo _WEB_HOST_TEMPLATE . '/image/icons8-search-50.png' ?>" alt=""></button>
-                                    <input type="text" placeholder="TÌM KIẾM SẢN PHẨM">
-                                </div>
+                                <form action="<?php echo _WEB_HOST_ROOT . '/Product/filterKey_header' ?>" class="search d-flex" method="post">
+                                    <div style="min-width:30px;" class="p-2" class="text-center"><img src="<?php echo _WEB_HOST_TEMPLATE . '/image/icons8-search-50.png' ?>" alt=""></div style="width:50px;">
+                                    <input type="text" name="keywork_h" placeholder="TÌM KIẾM SẢN PHẨM">
+                                    <input type="submit" style="visibility: hidden; max-width:10px" name="filter_product_header" value="Tìm Kiếm">
+                                </form>
                                 <div class="right_icon">
                                     <a href=""><i class="fa fa-headphones"></i></a>
-                                    <span id="js__box_user"><i class="fa fa-user"></i>
+                                    <span id="js__box_user">
+                                        <?php if (isset($_SESSION['user'])) {
+                                            if ($_SESSION['user']['image'] != "") {
+                                                echo '<img src="' . _WEB_HOST_ROOT . '/uploads/' . $_SESSION['user']['image'] . '" >';
+                                            } else {
+                                                echo '<i class="fa fa-user">';
+                                            }
+                                        } else {
+
+                                            echo '<i class="fa fa-user">';
+                                        } ?>
+
+                                        </i>
                                         <ul class="option_user">
-                                            <li><a href="">Cập nhật thông tin</a></li>
+                                            <li><a href="<?php echo _WEB_HOST_ROOT . '/User'  ?>">Thông tin cá nhân</a></li>
                                             <li><a href="<?php echo _WEB_HOST_ROOT . '/MyBill' ?>">Đơn hàng của bạn</a></li>
 
                                             <li><a href="">Quên mật khẩu</a></li>
 
-                                            <li><a href="Login/Out">Thoát</a></li>
+                                            <li><a href="<?php echo _WEB_HOST_ROOT . '/Login/Out' ?>">Thoát</a></li>
                                             <li><a href="Admin">Đăng nhập admin</a></li>
 
                                         </ul>

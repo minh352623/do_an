@@ -22,4 +22,28 @@ class Product extends Controller
         $listProductSame = $this->product->product_same($product['iddm'], $product['id']);
         $this->view("master2", ['page' => 'productDetail', "product" => $product, 'productSames' => $listProductSame]);
     }
+    function filter_cate($idCate)
+    {
+        $cate = $this->category->list_dm();
+        $products = $this->product->list_sp($idCate, "");
+        $this->view("master2", ['page' => 'product', "product" => $products, 'cate' => $cate]);
+    }
+    function filterKey()
+    {
+        if (isset($_POST['filter_product']) && $_POST['filter_product']) {
+            $keywork = $_POST['keywork'];
+            $cate = $this->category->list_dm();
+            $products = $this->product->list_sp(0, $keywork);
+            $this->view("master2", ['page' => 'product', "product" => $products, 'cate' => $cate]);
+        }
+    }
+    function filterKey_header()
+    {
+        if (isset($_POST['filter_product_header']) && $_POST['filter_product_header']) {
+            $keywork = $_POST['keywork_h'];
+            $cate = $this->category->list_dm();
+            $products = $this->product->list_sp(0, $keywork);
+            $this->view("master2", ['page' => 'product', "product" => $products, 'cate' => $cate]);
+        }
+    }
 }
