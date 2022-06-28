@@ -31,10 +31,17 @@
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li> -->
+                <li class="nav-item ml-4">
+                    <a class="nav-link" data-widget="fullscreen" href="<?php echo _WEB_HOST_ROOT . '/Home' ?>" role="button">
+                        <span class="fs-5 btn-sm btn-warning">
+                            <i class="fa-solid fs-5 fa-arrow-right-to-bracket"></i>
+                            Trở về trang client
+                        </span>
+                    </a>
                 </li>
-
             </ul>
 
             <!-- Right navbar links -->
@@ -43,11 +50,7 @@
 
 
 
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
+
 
             </ul>
         </nav>
@@ -92,27 +95,33 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo _WEB_HOST_ROOT . '/Admin' ?>" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="<?php echo _WEB_HOST_ROOT . '/Admin' ?>" class="nav-link nav-link-child ">
+                                        <i class="nav-icon fas fa-project-diagram"></i>
                                         <p>Trang chủ</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo _WEB_HOST_ROOT . '/Admin/danhmuc' ?>" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="<?php echo _WEB_HOST_ROOT . '/Admin/danhmuc' ?>" class="nav-link nav-link-child">
+                                        <i class="nav-icon far fa-folder"></i>
                                         <p>Danh mục sản phẩm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo _WEB_HOST_ROOT . '/Admin/sanpham' ?>" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="<?php echo _WEB_HOST_ROOT . '/Admin/sanpham' ?>" class="nav-link nav-link-child">
+                                        <i class="nav-icon fab fa-servicestack"></i>
                                         <p>Sản Phẩm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?php echo _WEB_HOST_ROOT . '/Admin/user' ?>" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách tài khoản</p>
+                                    <a href="<?php echo _WEB_HOST_ROOT . '/Admin/list_acccount' ?>" class="nav-link nav-link-child">
+                                        <i class="nav-icon fas fa-user"></i>
+                                        <p>Quản lí tài khoản</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?php echo _WEB_HOST_ROOT . '/Admin/list_bill' ?>" class="nav-link nav-link-child">
+                                        <i class="nav-icon fa-solid fa-file-invoice-dollar"></i>
+                                        <p>Quản lí đơn hàng</p>
                                     </a>
                                 </li>
                             </ul>
@@ -128,7 +137,7 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
 
-            <?php require_once './mvc/views/admin/' . $data['page'] . '.php' ?>
+            <?php require_once './mvc/views/admin/' . $data['module'] . '/' . $data['page'] . '.php' ?>
 
         </div>
 
@@ -142,10 +151,12 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script>
-        $.widget.bridge('uibutton', $.ui.button)
+        $.widget?.bridge('uibutton', $.ui.button)
     </script>
     <!-- AdminLTE App -->
     <script src="<?php echo _WEB_HOST_TEMPLATE . '/js//adminlte.js' ?>"></script>
+    <script src="<?php echo _WEB_HOST_TEMPLATE . '/js/admin.js' ?>"></script>
+
 
 
 

@@ -6,9 +6,6 @@ date_default_timezone_set(
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
-// echo '<pre>';
-// print_r($_SESSION['cart']);
-// print_r($_SESSION['user']);
 
 require_once './mvc/Bridge.php';
 require_once './global.php';

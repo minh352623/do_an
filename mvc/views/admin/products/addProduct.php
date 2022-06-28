@@ -48,9 +48,9 @@
                 <input type="text" required name="danhmucsp">
             </div> -->
             <div class="row mb10">
-                <input style="width:70px" type="submit" name="themmoisp" value="THÊM MỚI">
-                <input style="width:70px" type="reset" value="NHẬP LẠI">
-                <a style="width:70px" href="<?php echo _WEB_HOST_ROOT . '/Admin/sanpham' ?>"><input type="button" value="DANH SÁCH"></a>
+                <input style="width:150px" type="submit" name="themmoisp" value="THÊM MỚI">
+                <input style="width:150px" type="reset" value="NHẬP LẠI">
+                <a style="width:150px" href="<?php echo _WEB_HOST_ROOT . '/Admin/sanpham' ?>"><input type="button" value="DANH SÁCH"></a>
             </div>
 
         </form>

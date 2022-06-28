@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: sans-serif;
-    font-size: 0.7vw;
+    font-size: 1vw;
 }
 
 
@@ -207,11 +207,11 @@ header .main-header.active {
 }
 
 /* endtopbar */
-
+/* 
 .row {
     float: left;
     width: 100%;
-}
+} */
 
 .mb {
     margin-bottom: 20px;
@@ -850,4 +850,46 @@ th {
 
 .content-wrapper {
     background-color: #fff;
+}
+
+.frmcontent {
+    margin: auto;
+}
+
+.avatar_update_edit {
+    max-width: 100px;
+    max-height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 50%;
+}
+
+.my_bill_total,
+.my_bill_status {
+    font-weight: bold;
+}
+
+.container-info-user {
+    background-color: #fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 12px 24px;
+    border-radius: 8px;
+}
+
+.container-info-user>div {
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+    color: #666;
+    border-bottom: .1px solid #ccc;
+    padding: 8px 0;
+    align-items: center;
+}
+
+.container-info-user>div select {
+    max-width: 200px;
+}
+
+.container-info-user>div select option,
+.container-info-user>div span {
+    font-size: 1.2rem;
 }

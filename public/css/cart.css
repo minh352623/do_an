@@ -301,10 +301,19 @@ input[name="bill"] {
 }
 
 .my_bill thead tr th {
-    padding-bottom: 16px;
+    /* padding-bottom: 16px; */
+
 }
 
+.my_bill thead tr th:first-child {
+    border-radius: 6px 0 0 6px;
 
+}
+
+.my_bill thead tr th:last-child {
+    border-radius: 0 6px 6px 0;
+
+}
 
 /* .my_bill thead tr, .my_bill tbody tr, */
 .my_bill thead, .my_bill tbody {
@@ -326,4 +335,28 @@ input[name="bill"] {
 .my_bill tbody td {
     border: none;
 
+}
+
+/* mybill */
+.my_bill thead {
+    background-color: #e4e4e4;
+    height: 45px;
+}
+
+.my_bill thead tr th {
+    line-height: 45px;
+}
+
+.view_bill {
+    padding: 12px;
+
+    border-radius: 16px 0 16px 0;
+    background-color: #fff;
+    color: #000;
+    border: .1px solid #ccc;
+}
+
+.view_bill:hover {
+    background-color: #000;
+    color: #fff;
 }

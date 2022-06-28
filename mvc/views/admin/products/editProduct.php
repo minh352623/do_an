@@ -27,10 +27,10 @@ if (isset($data['product']['image'])) {
                     <?php
                     foreach ($data['danhmuc'] as $item) {
                         if ($item['id'] == $data['product']['iddm']) {
-                            echo '<option selected value="' . $item['id'] . '">' . $item['name'] . '</option>';
+                            echo '<option class="fs-6" selected value="' . $item['id'] . '">' . $item['name'] . '</option>';
                         } else {
 
-                            echo '<option value="' . $item['id'] . '">' . $item['name'] . '</option>';
+                            echo '<option class="fs-6" value="' . $item['id'] . '">' . $item['name'] . '</option>';
                         }
                     }
                     ?>
@@ -62,9 +62,9 @@ if (isset($data['product']['image'])) {
 
             <div class="row mb10">
                 <input type="hidden" name="id" value="<?= $data['product']['id'] ?>">
-                <input style="width:70px" type="submit" name="updatesp" value="CẬP NHẬT">
-                <input style="width:70px" type="reset" value="NHẬP LẠI">
-                <a style="width:70px" href="<?php echo _WEB_HOST_ROOT . '/Admin/sanpham' ?>"><input type="button" value="DANH SÁCH"></a>
+                <input style="width:150px" type="submit" name="updatesp" value="CẬP NHẬT">
+                <input style="width:150px" type="reset" value="NHẬP LẠI">
+                <a style="width:150px" href="<?php echo _WEB_HOST_ROOT . '/Admin/sanpham' ?>"><input type="button" value="DANH SÁCH"></a>
             </div>
 
         </form>

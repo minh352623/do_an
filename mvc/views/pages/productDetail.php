@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="product_detail_action mt-5">
-                        <button class="product_detail_add" data-id="<?php echo $data['product']['id'] ?>">THÊM VÀO GIỎ</button>
+                        <div class="product_detail_add" data-id="<?php echo $data['product']['id'] ?>">THÊM VÀO GIỎ</div>
                         <button class="product_detail_buy">MUA HÀNG</button>
 
                     </div>
@@ -61,16 +61,16 @@
                         <span class="price">' . product_price($item['price'])  . '</span>
                     </div>
                     
-                  
+                    <div class="add-to-cart" data-id="' . $item['id'] . '">
+                    <p ><i class="fa fa-bag-shopping"></i></p>
+
+                </div>
     
                 </div>';
                 }
             }
             ?>
-            <!-- <div class="add-to-cart" data-id="' . $item['id'] . '">
-                        <p ><i class="fa fa-bag-shopping"></i></p>
-    
-                    </div> -->
+
         </div>
     </div>
 </div>

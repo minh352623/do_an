@@ -1,8 +1,13 @@
 <div class="main">
-
-    <div class="banner_product">
-
+    <div class="image_about">
         <img src="<?php echo _WEB_HOST_TEMPLATE . '/image/product_banner.webp' ?>" alt="">
+        <div class="image_content">
+            <h2><?php echo $data['path'] ?></h2>
+            <div class="path_page">
+                <span>Trang chủ</span><span> / </span>
+                <span><?php echo $data['path'] ?></span>
+            </div>
+        </div>
     </div>
     <div class="main_product mt-5">
         <div class="container">
@@ -13,6 +18,7 @@
                         <h2>DANH MỤC</h2>
                         <div class="container_category mt-4">
                             <ul class="list_category">
+                                <li class="item_category"> <a href="<?php echo _WEB_HOST_ROOT . '/Product' ?>" class="cate_link">Tất Cả</a></li>
                                 <?php
                                 if (isset($data['cate']) && $data['cate']) {
                                     foreach ($data['cate'] as $cate) {
@@ -39,9 +45,9 @@
                         </div>
                         <div class="col-lg-8">
                             <div class="filter_right">
-                                <form action="" class="d-flex gap-2">
+                                <form action="<?php echo _WEB_HOST_ROOT . '/Product/filterKey' ?>" method="post" class=" d-flex gap-2">
                                     <div class="form-floating" style="flex:1">
-                                        <input type="email" class="form-control input_margin w-100 fs-4" id="floatingInput" placeholder="name@example.com">
+                                        <input type="text" name="keywork" class=" form-control input_margin w-100 fs-4" id="floatingInput" placeholder="name@example.com">
                                         <label for="floatingInput fs-3">Tìm sản phẩm</label>
                                     </div>
                                     <input type="submit" class="btn btn-secondary fs-5" name="filter_product" value="Tìm Kiếm">
@@ -72,6 +78,8 @@
     
                 </div>';
                                 }
+                            } else {
+                                echo '<h2 class="text-center mt-5 text-danger">Hiện Chúng Tôi Chưa Có Sản Phẩm Này!</h2>';
                             }
                             ?>
 

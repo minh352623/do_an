@@ -24,7 +24,7 @@ function billStatus($n)
             $result = "Đang chờ duyệt";
             break;
         case 1:
-            $result = "Đang giao";
+            $result = "Đang vận chuyển";
             break;
         case 2:
             $result = "Đã nhận";
