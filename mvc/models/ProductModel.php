@@ -140,4 +140,15 @@ class ProductModel extends DB
         }
         return 0;
     }
+
+    //thống kê sản Phẩm
+    function load_all_thongke()
+    {
+        $sql = "select category.id,category.name,count(product.id) as count_sp,min(product.price) as min_price,max(product.price) as max_price,avg(product.price) as avg_price";
+        $sql .= " from product inner join category on category.id = product.idDm";
+        $sql .= " group by category.id order by category.id desc";
+
+        $listTk  = $this->pdo_query($sql);
+        return $listTk;
+    }
 }

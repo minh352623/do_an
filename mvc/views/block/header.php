@@ -14,12 +14,14 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/base.css' ?>">
-
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/style.css' ?>">
+
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/product.css' ?>">
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/cart.css' ?>">
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/DetailProduct.css' ?>">
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/user.css' ?>">
+    <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/footer.css' ?>">
 
 
 
@@ -34,9 +36,9 @@
             <div class="header">
                 <!-- header may tinh -->
                 <div class="header_pc d-none d-sm-block">
-                    <div class="row">
-                        <div class="col-5">
-                            <div class="left_logo">
+                    <div class="row ">
+                        <div class="col-5 ">
+                            <div class="left_logo ">
                                 <ul>
                                     <li><a href="<?php echo _WEB_HOST_ROOT . '/Home' ?>">Trang chủ</a>
 
@@ -44,21 +46,23 @@
                                     <li><a href="<?php echo _WEB_HOST_ROOT . '/Product' ?>">Sản phẩm</a>
 
                                     </li>
-                                    <li><a href="">Về Chúng Tôi</a></li>
+                                    <li><a href="<?php echo _WEB_HOST_ROOT . '/About' ?>">Về Chúng Tôi</a></li>
+                                    <li><a href="<?php echo _WEB_HOST_ROOT . '/Contact' ?>">Liên hệ</a></li>
+
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="col-2">
+                        <div class="col-2 ">
                             <div class="logo">
-                                <a href="">
-                                    <!-- <img src="https://hinhanhonline.com/Images/Album/Hinhanhdongvatsinhdong/hinh-anh-dong-vat-sinh-dong-de-thuong-hinhanhonline-0.jpg" alt=""> -->
+                                <a href="<?php echo _WEB_HOST_ROOT . '/Home' ?>" class="image-logo-header">
+                                    <img src="<?php echo _WEB_HOST_TEMPLATE . '/image/logo_web.png' ?>" alt="">
                                 </a>
                             </div>
                         </div>
 
-                        <div class="col-5 d-flex justify-content-end align-items-center">
-                            <div class="icon_shop">
+                        <div class="col-5  d-flex justify-content-end align-items-center">
+                            <div class="icon_shop ">
                                 <form action="<?php echo _WEB_HOST_ROOT . '/Product/filterKey_header' ?>" class="search d-flex" method="post">
                                     <div style="min-width:30px;" class="p-2" class="text-center"><img src="<?php echo _WEB_HOST_TEMPLATE . '/image/icons8-search-50.png' ?>" alt=""></div style="width:50px;">
                                     <input type="text" name="keywork_h" placeholder="TÌM KIẾM SẢN PHẨM">
@@ -68,7 +72,7 @@
                                     <a href=""><i class="fa fa-headphones"></i></a>
                                     <span id="js__box_user">
                                         <?php if (isset($_SESSION['user'])) {
-                                            if ($_SESSION['user']['image'] != "") {
+                                            if (isset($_SESSION['user']['image']) &&  $_SESSION['user']['image'] != "") {
                                                 echo '<img src="' . _WEB_HOST_ROOT . '/uploads/' . $_SESSION['user']['image'] . '" >';
                                             } else {
                                                 echo '<i class="fa fa-user">';
@@ -86,7 +90,15 @@
                                             <li><a href="">Quên mật khẩu</a></li>
 
                                             <li><a href="<?php echo _WEB_HOST_ROOT . '/Login/Out' ?>">Thoát</a></li>
-                                            <li><a href="Admin">Đăng nhập admin</a></li>
+                                            <?php
+                                            if (isset($_SESSION['user'])) {
+                                                if ($_SESSION['user']['role'] == 1) {
+
+                                                    echo '<li><a href="' . _WEB_HOST_ROOT . '/Admin">Đăng nhập admin</a></li>';
+                                                }
+                                            }
+
+                                            ?>
 
                                         </ul>
                                     </span>

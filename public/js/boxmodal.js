@@ -43,8 +43,27 @@ $(document).ready(function () {
   }
 
   var btn_cart = document.getElementById("js__box_user");
-
-  btn_cart.addEventListener("click", function () {});
+  let option_user = document.querySelector(".option_user");
+  btn_cart.addEventListener("click", function (e) {
+    if (
+      e.target.matches("#js__box_user i") ||
+      e.target.matches("#js__box_user img")
+    ) {
+      option_user.classList.toggle("active");
+    }
+    console.log("abc");
+  });
+  document.addEventListener("click", function (e) {
+    if (
+      !option_user.contains(e.target) &&
+      !e.target.matches("#js__box_user img") &&
+      !e.target.matches("#js__box_user i") &&
+      !e.target.matches("#js__box_user")
+    ) {
+      console.log(e.target);
+      option_user.classList.remove("active");
+    }
+  });
 
   //   var left = document.querySelectorAll(".cart_item_left");
   //   var right = document.querySelectorAll(".cart_item_right");
@@ -249,6 +268,10 @@ $(document).ready(function () {
         tthang.textContent = formatMoney(summoney) + "đ";
         thanhtien.textContent = formatMoney(summoney) + "đ";
         tamtinh.textContent = formatMoney(summoney) + "đ";
+        toastr.success("Đã xóa thành công", "Thông báo", {
+          timeOut: 3000,
+          closeButton: true,
+        });
       });
     }
   });

@@ -1,8 +1,75 @@
             <div class="footer mt-5">
-                <span>©CNTTA7 All rights reserved</span>
+                <div class="container-footer py-5">
+                    <div class="row text-start">
+                        <div class="col-lg-3 ">
+                            <a href="<?php echo _WEB_HOST_ROOT . '/Home' ?>" class="image-logo">
+                                <img src="<?php echo _WEB_HOST_TEMPLATE . '/image/logo_web.png' ?>" alt="">
+                            </a>
+                            <div class="footer-info py-3">
+                                <div class=" my-3 footer-address">
+                                    <span>Địa chỉ:</span>
+                                    <span>Ninh kiều,Cần Thơ</span>
+                                </div>
+                                <div class=" my-3 footer-tel">
+                                    <span>Số điện thoại:</span>
+                                    <span>0123456789</span>
+                                </div>
+                                <div class=" my-3 footer-email">
+                                    <span>Email:</span>
+                                    <span>minh@gmail.com</span>
+                                </div>
+                            </div>
+                            <div class="footer-social my-3">
+                                <ul>
+                                    <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+                                    <li><a href=""><i class="fa-brands fa-google"></i></a></li>
+                                    <li><a href=""><i class="fa-brands fa-instagram-square"></i></a></li>
+                                    <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
+                                    <li><a href=""><i class="fa-brands fa-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 mt-2 ">
+                            <h2 class="fs-1">Giới Thiệu</h2>
+                            <div class="footer-about_list py-3">
+                                <ul>
+                                    <li class="my-3"><a href="">Về cửa hàng</a></li>
+                                    <li class="my-3"><a href="">Tuyển dụng</a></li>
+                                    <li class="my-3"><a href="">Hệ thống cửa hàng</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 mt-2 ">
+                            <h2 class="fs-1">Liên hệ</h2>
+                            <div class="footer-about_list py-3">
+                                <ul>
+                                    <li class="my-3"><a href="">Hotline</a></li>
+                                    <li class="my-3"><a href="">Email</a></li>
+                                    <li class="my-3"><a href="">Message</a></li>
+                                    <li class="my-3"><a href="">Liên hệ</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="container-form">
+
+                                <form action="" method="post" class="form_contact-footer">
+                                    <h2>Nhân thông tin các chương trình của cửa hàng chúng tôi</h2>
+                                    <div class="form-group mt-5">
+                                        <input type="text" placeholder="Nhập đại chỉ email">
+                                        <input type="button" class="register_footer" name="register_footer" value="Đăng ký">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <span class="py-5">©CNTTA7 All rights reserved</span>
             </div>
 
-            <div class="menu_mobile_modal d-block d-sm-none">
+            <div class=" menu_mobile_modal d-block d-sm-none">
 
                 <a href="" class="box_login">Đăng nhập</a>
 
@@ -144,8 +211,12 @@
             <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.1/toastr.min.js"></script>
             <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
             <script src="<?php echo _WEB_HOST_TEMPLATE . '/js/main.js' ?>"></script>
+            <script src="<?php echo _WEB_HOST_TEMPLATE . '/js/footer.js' ?>"></script>
+
             <script src="<?php echo _WEB_HOST_TEMPLATE . '/js/boxmodal.js' ?>"></script>
             <script src="<?php echo _WEB_HOST_TEMPLATE . '/js/product.js' ?>"></script>
 

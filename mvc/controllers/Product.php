@@ -14,19 +14,22 @@ class Product extends Controller
     {
         $cate = $this->category->list_dm();
         $products = $this->product->list_sp(0, "");
-        $this->view("master2", ['page' => 'product', "product" => $products, 'cate' => $cate]);
+        $this->view("master2", ['page' => 'product', "product" => $products, 'cate' => $cate, 'path' => "Sản Phẩm"]);
     }
     function Detail($id)
     {
-        $product = $this->product->one_pro($id);
-        $listProductSame = $this->product->product_same($product['iddm'], $product['id']);
-        $this->view("master2", ['page' => 'productDetail', "product" => $product, 'productSames' => $listProductSame]);
+        echo "asda";
+        if (isset($id) && (int)$id > 0) {
+            $product = $this->product->one_pro($id);
+            $listProductSame = $this->product->product_same($product['iddm'], $product['id']);
+            $this->view("master2", ['page' => 'productDetail', "product" => $product, 'productSames' => $listProductSame, 'path' => "Sản Phẩm"]);
+        }
     }
     function filter_cate($idCate)
     {
         $cate = $this->category->list_dm();
         $products = $this->product->list_sp($idCate, "");
-        $this->view("master2", ['page' => 'product', "product" => $products, 'cate' => $cate]);
+        $this->view("master2", ['page' => 'product', "product" => $products, 'cate' => $cate, 'path' => "Sản Phẩm"]);
     }
     function filterKey()
     {
@@ -34,7 +37,7 @@ class Product extends Controller
             $keywork = $_POST['keywork'];
             $cate = $this->category->list_dm();
             $products = $this->product->list_sp(0, $keywork);
-            $this->view("master2", ['page' => 'product', "product" => $products, 'cate' => $cate]);
+            $this->view("master2", ['page' => 'product', "product" => $products, 'cate' => $cate, 'path' => "Sản Phẩm"]);
         }
     }
     function filterKey_header()
@@ -43,7 +46,7 @@ class Product extends Controller
             $keywork = $_POST['keywork_h'];
             $cate = $this->category->list_dm();
             $products = $this->product->list_sp(0, $keywork);
-            $this->view("master2", ['page' => 'product', "product" => $products, 'cate' => $cate]);
+            $this->view("master2", ['page' => 'product', "product" => $products, 'cate' => $cate, 'path' => "Sản Phẩm"]);
         }
     }
 }

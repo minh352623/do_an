@@ -3,6 +3,7 @@ $(document).ready(function () {
     //Hàm tạo cho các đối tượng cho phép định dạng số nhạy cảm với ngôn ngữ.
     return Intl.NumberFormat("vi-VN").format(num);
   }
+
   let container = document.querySelector(".body_cart");
   let number_cart = document.querySelector(".js__formcart span");
   let number_cart_child = document.querySelector(".js__numberincart");
@@ -60,19 +61,60 @@ $(document).ready(function () {
           number_cart.textContent = number;
           number_cart_child.textContent = number;
           money.textContent = formatMoney(summoney) + "đ";
-          alert("Thêm vào giỏ hàng thành công!");
+          toastr.options = {
+            positionClass: "toast-top-center",
+          };
+          toastr.success("Thêm vào giỏ hàng thành công!", "Thông báo", {
+            timeOut: 1000,
+            closeButton: true,
+          });
         }
       );
     }
   });
-
+  //add cart page home and product
+  $(".add-to-cart p").click(function (e) {
+    e.preventDefault();
+    if (e.target.matches(".add-to-cart p i")) {
+      let item = e.target.parentNode.parentNode.parentNode;
+      let id = +item.querySelector(".add-to-cart").dataset.id;
+      console.log(id);
+      $.post(
+        "./Ajax/addProduct",
+        { id_item: JSON.stringify(id) },
+        function (data) {
+          // console.log(JSON.parse(data).length);
+          container.innerHTML = "";
+          let number = 0;
+          let summoney = 0;
+          console.log(data);
+          JSON.parse(data).forEach(function (item) {
+            number += +item.soluong;
+            summoney += item.soluong * item.price;
+            loadCart(item);
+            // console.log(number);
+          });
+          number_cart.textContent = number;
+          number_cart_child.textContent = number;
+          money.textContent = formatMoney(summoney) + "đ";
+          toastr.options = {
+            positionClass: "toast-top-center",
+          };
+          toastr.success("Thêm vào giỏ hàng thành công!", "Thông báo", {
+            timeOut: 1000,
+            closeButton: true,
+          });
+        }
+      );
+    }
+  });
   //add cart page detail
   $(".product_detail_add")?.click(function (e) {
     e.preventDefault();
     e.stopPropagation();
     let item = e.target;
     let id = +item.dataset.id;
-    console.log(id);
+    console.log(+id);
     $.post(
       "./Ajax/addProduct",
       { id_item: JSON.stringify(id) },
@@ -91,7 +133,13 @@ $(document).ready(function () {
         number_cart.textContent = number;
         number_cart_child.textContent = number;
         money.textContent = formatMoney(summoney) + "đ";
-        alert("Thêm vào giỏ hàng thành công!");
+        toastr.options = {
+          positionClass: "toast-top-center",
+        };
+        toastr.success("Thêm vào giỏ hàng thành công!", "Thông báo", {
+          timeOut: 1000,
+          closeButton: true,
+        });
       }
     );
   });

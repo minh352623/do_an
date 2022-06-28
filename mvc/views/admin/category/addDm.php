@@ -20,9 +20,9 @@
 
 
 
-                <input style="width:70px" type="submit" name="themmoi" value="THÊM MỚI">
-                <input style="width:70px" type="reset" value="NHẬP LẠI">
-                <a style="width:70px" href="<?php echo _WEB_HOST_ROOT . '/Admin/danhmuc' ?>"><input type="button" value="DANH SÁCH"></a>
+                <input style="width:150px" type="submit" name="themmoi" value="THÊM MỚI">
+                <input style="width:150px" type="reset" value="NHẬP LẠI">
+                <a style="width:150px" href="<?php echo _WEB_HOST_ROOT . '/Admin/danhmuc' ?>"><input type="button" value="DANH SÁCH"></a>
             </div>
 
         </form>

@@ -1,7 +1,13 @@
 <div class="main">
-    <div class="banner_product">
-
+    <div class="image_about">
         <img src="<?php echo _WEB_HOST_TEMPLATE . '/image/product_banner.webp' ?>" alt="">
+        <div class="image_content">
+            <h2><?php echo $data['path'] ?></h2>
+            <div class="path_page">
+                <span>Trang chủ</span><span> / </span>
+                <span><?php echo $data['path'] ?></span>
+            </div>
+        </div>
     </div>
     <div class="main_product mt-5">
         <div class="container">
@@ -12,7 +18,7 @@
                         <h2>DANH MỤC</h2>
                         <div class="container_category mt-4">
                             <ul class="list_category">
-                                <li class="item_category"> <a href="<?php echo _WEB_HOST_ROOT . '/Product/filter_cate/0' ?>" class="cate_link">Tất Cả</a></li>
+                                <li class="item_category"> <a href="<?php echo _WEB_HOST_ROOT . '/Product' ?>" class="cate_link">Tất Cả</a></li>
                                 <?php
                                 if (isset($data['cate']) && $data['cate']) {
                                     foreach ($data['cate'] as $cate) {
