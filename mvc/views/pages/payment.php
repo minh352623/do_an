@@ -74,7 +74,9 @@
                                 <?php if (isset($_SESSION['cart'])) {
 
                                     foreach ($_SESSION['cart'] as $item) {
-                                        echo '
+                                        if (isset($item['id']) && $item['id']) {
+
+                                            echo '
                                     <tr data-id2="' . $item['id'] . '">
                                     <td>
                                         <a href=""><img src="' . _WEB_HOST_ROOT . '/uploads/' . $item['image'] . '" alt=""></a>
@@ -93,6 +95,7 @@
                                     <td class="total_cart">' . product_price($item['price'] * $item['soluong']) . '</td>
                                 </tr>
                                     ';
+                                        }
                                     }
                                 }  ?>
 

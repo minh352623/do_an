@@ -25,7 +25,7 @@ html {
     padding-left: 35px;
     padding-right: 35px;
     background-color: white;
-    z-index: 2;
+    z-index: 4;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -1024,7 +1024,7 @@ table td {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.4);
-    z-index: 2;
+    z-index: 5;
     transition: all 0.25s linear;
 
     font-family: 'Montserrat', sans-serif;
@@ -1910,4 +1910,18 @@ a {
 
 .toast-message {
     font-size: 1.6rem !important;
+}
+
+/* mesage */
+
+.swal2-popup.swal2-toast {
+    font-size: 1.8rem !important;
+}
+
+.swal2-html-container {
+    font-size: 1.5rem !important;
+}
+
+.swal2-styled.swal2-confirm {
+    font-size: 1.5em !important;
 }

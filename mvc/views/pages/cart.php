@@ -34,7 +34,9 @@
                             <?php if (isset($_SESSION['cart'])) {
 
                                 foreach ($_SESSION['cart'] as $item) {
-                                    echo '
+                                    if (isset($item['id']) && $item['id']) {
+
+                                        echo '
                                     <tr data-id2="' . $item['id'] . '">
                                     <td>
                                         <a href=""><img src="' . _WEB_HOST_ROOT . '/uploads/' . $item['image'] . '" alt=""></a>
@@ -44,9 +46,9 @@
                                     <td>
                                         <div class="number_price ">
                                             <div class="cart_list_left fs-3">
-                                                <div class="cart_item_left cart_item_number">-</div>
+                                                <div hreff="' . _WEB_HOST_ROOT . '" class="cart_item_left cart_item_number">-</div>
                                                 <span class="num_cart">' . $item['soluong'] . '</span>
-                                                <div class="cart_item_right cart_item_number">+</div>
+                                                <div hreff="' . _WEB_HOST_ROOT . '" class="cart_item_right cart_item_number">+</div>
                                             </div>
     
     
@@ -56,6 +58,7 @@
                                     <td><span class="remove_item_cart" data-id="' . $item['id'] . '"><i class="fa-solid fa-trash-can"></i></span></td>
                                 </tr>
                                     ';
+                                    }
                                 }
                             }  ?>
 

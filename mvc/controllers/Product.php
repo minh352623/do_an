@@ -18,7 +18,6 @@ class Product extends Controller
     }
     function Detail($id)
     {
-        echo "asda";
         if (isset($id) && (int)$id > 0) {
             $product = $this->product->one_pro($id);
             $listProductSame = $this->product->product_same($product['iddm'], $product['id']);

@@ -9,11 +9,11 @@ $(document).ready(function () {
   let number_cart_child = document.querySelector(".js__numberincart");
   let money = document.querySelector(".total_price span b");
 
-  function loadCart(item) {
+  function loadCart(item, href) {
     let template = `
         <div class="product_item" data-id="${item.id}">
         <div class="product_item_img">
-            <img src="./uploads/${item.image}" alt="">
+            <img src="${href}/uploads/${item.image}" alt="">
         </div>
         <div class="product_item_text">
             <span>${item.name}</span><br>
@@ -21,9 +21,9 @@ $(document).ready(function () {
 
             <div class="number_price">
                 <div class="cart_list_left">
-                    <div class="cart_item_left cart_item_number">-</div>
+                    <div hreff="${href}" class="cart_item_left cart_item_number">-</div>
                     <span class="num_cart">${item.soluong}</span>
-                    <div class="cart_item_right cart_item_number">+</div>
+                    <div hreff="${href}" class="cart_item_right cart_item_number">+</div>
                 </div>
 
                 <div class="price_cart">
@@ -42,9 +42,10 @@ $(document).ready(function () {
     if (e.target.matches(".add-to-cart a i")) {
       let item = e.target.parentNode.parentNode.parentNode;
       let id = +item.querySelector(".add-to-cart").dataset.id;
-      console.log(id);
+      let href = $(".add-to-cart a").attr("hreff");
+      console.log(href);
       $.post(
-        "./Ajax/addProduct",
+        href + "/Ajax/addProduct",
         { id_item: JSON.stringify(id) },
         function (data) {
           // console.log(JSON.parse(data).length);
@@ -55,59 +56,29 @@ $(document).ready(function () {
           JSON.parse(data).forEach(function (item) {
             number += +item.soluong;
             summoney += item.soluong * item.price;
-            loadCart(item);
+            loadCart(item, href);
             // console.log(number);
           });
           number_cart.textContent = number;
           number_cart_child.textContent = number;
           money.textContent = formatMoney(summoney) + "đ";
-          toastr.options = {
-            positionClass: "toast-top-center",
-          };
-          toastr.success("Thêm vào giỏ hàng thành công!", "Thông báo", {
-            timeOut: 1000,
-            closeButton: true,
-          });
+          // toastr.options = {
+          //   positionClass: "toast-top-center",
+          // };
+          // toastr.success("Thêm vào giỏ hàng thành công!", "Thông báo", {
+          //   timeOut: 1000,
+          //   closeButton: true,
+          // });
+          Swal.fire(
+            "Thêm vào giỏ hàng thành công!",
+            "Cảm ơn. Bấm ok để tiếp tục!",
+            "success"
+          );
         }
       );
     }
   });
-  //add cart page home and product
-  $(".add-to-cart p").click(function (e) {
-    e.preventDefault();
-    if (e.target.matches(".add-to-cart p i")) {
-      let item = e.target.parentNode.parentNode.parentNode;
-      let id = +item.querySelector(".add-to-cart").dataset.id;
-      console.log(id);
-      $.post(
-        "./Ajax/addProduct",
-        { id_item: JSON.stringify(id) },
-        function (data) {
-          // console.log(JSON.parse(data).length);
-          container.innerHTML = "";
-          let number = 0;
-          let summoney = 0;
-          console.log(data);
-          JSON.parse(data).forEach(function (item) {
-            number += +item.soluong;
-            summoney += item.soluong * item.price;
-            loadCart(item);
-            // console.log(number);
-          });
-          number_cart.textContent = number;
-          number_cart_child.textContent = number;
-          money.textContent = formatMoney(summoney) + "đ";
-          toastr.options = {
-            positionClass: "toast-top-center",
-          };
-          toastr.success("Thêm vào giỏ hàng thành công!", "Thông báo", {
-            timeOut: 1000,
-            closeButton: true,
-          });
-        }
-      );
-    }
-  });
+
   //add cart page detail
   $(".product_detail_add")?.click(function (e) {
     e.preventDefault();
@@ -115,11 +86,12 @@ $(document).ready(function () {
     let item = e.target;
     let id = +item.dataset.id;
     console.log(+id);
+    let href = $(this).attr("hreff");
+    console.log(href);
     $.post(
-      "./Ajax/addProduct",
+      href + "/Ajax/addProduct",
       { id_item: JSON.stringify(id) },
       function (data) {
-        // console.log(JSON.parse(data).length);
         container.innerHTML = "";
         let number = 0;
         let summoney = 0;
@@ -127,20 +99,38 @@ $(document).ready(function () {
         JSON.parse(data).forEach(function (item) {
           number += +item.soluong;
           summoney += item.soluong * item.price;
-          loadCart(item);
-          // console.log(number);
+          loadCart(item, href);
         });
         number_cart.textContent = number;
         number_cart_child.textContent = number;
         money.textContent = formatMoney(summoney) + "đ";
-        toastr.options = {
-          positionClass: "toast-top-center",
-        };
-        toastr.success("Thêm vào giỏ hàng thành công!", "Thông báo", {
-          timeOut: 1000,
-          closeButton: true,
-        });
+        // toastr.options = {
+        //   positionClass: "toast-top-center",
+        // };
+        // toastr.success("Thêm vào giỏ hàng thành công!", "Thông báo", {
+        //   timeOut: 1000,
+        //   closeButton: true,
+        // });
+        Swal.fire(
+          "Thêm vào giỏ hàng thành công!",
+          "Cảm ơn. Bấm ok để tiếp tục!",
+          "success"
+        );
       }
     );
   });
+});
+
+$(".product_detail_buy").click(function (e) {
+  toastr.options = {
+    positionClass: "toast-top-right",
+  };
+  toastr.error(
+    "Tính năng này chúng tôi đang bảo trì. Vui lòng thêm sản phẩm vào giỏ hàng để mua!",
+    "Thông báo",
+    {
+      timeOut: 2000,
+      closeButton: true,
+    }
+  );
 });

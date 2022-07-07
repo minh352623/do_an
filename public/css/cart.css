@@ -29,6 +29,7 @@
     content: "";
     width: 100%;
     top: 12px;
+    z-index: 2;
 }
 
 .cart_status ul li {
@@ -55,10 +56,13 @@
     z-index: 12;
     border: 2px solid #e7e8e9;
     background-color: white;
+    z-index: 3;
 }
 
 .cart_status ul li.active {
     position: relative;
+    z-index: 3;
+
 }
 
 .cart_status ul li.active::before {
