@@ -47,6 +47,7 @@
     background-color: #fff;
     border-radius: 16px 0 16px 0;
     transition: all 0.2s linear;
+    cursor: pointer;
 }
 
 .product_detail_add {

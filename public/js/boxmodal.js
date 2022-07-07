@@ -14,11 +14,11 @@ $(document).ready(function () {
   let cart_title = document.querySelector(".cart_title .update_sl");
   let cart_summary = document.querySelector(".update_cart_summary");
 
-  function loadCart(item) {
+  function loadCart(item, href) {
     let template = `
               <div class="product_item" data-id="${item.id}">
               <div class="product_item_img">
-                  <img src="./uploads/${item.image}" alt="">
+                  <img src="${href}/uploads/${item.image}" alt="">
               </div>
               <div class="product_item_text">
                   <span>${item.name}</span><br>
@@ -26,9 +26,9 @@ $(document).ready(function () {
       
                   <div class="number_price">
                       <div class="cart_list_left">
-                          <div class="cart_item_left cart_item_number">-</div>
+                          <div hreff="${href}" class="cart_item_left cart_item_number">-</div>
                           <span class="num_cart">${item.soluong}</span>
-                          <div class="cart_item_right cart_item_number">+</div>
+                          <div hreff="${href}" class="cart_item_right cart_item_number">+</div>
                       </div>
       
                       <div class="price_cart">
@@ -74,6 +74,9 @@ $(document).ready(function () {
       let btn = e.target;
       let btnnum = btn.parentElement.children[1];
       let valcar = btnnum.innerHTML;
+      let href = $(".cart_item_right").attr("hreff");
+      console.log(href);
+
       let newvalue = parseInt(valcar) + 1;
       btnnum.innerHTML = newvalue;
       let id = e.target.parentNode.parentNode.parentNode.parentNode.dataset.id2;
@@ -90,7 +93,7 @@ $(document).ready(function () {
           JSON.parse(data).forEach(function (item, index) {
             number += +item.soluong;
             summoney += item.soluong * item.price;
-            loadCart(item);
+            loadCart(item, href);
             totalCart[index].textContent = formatMoney(item.total) + "đ";
             // console.log(number);
           });
@@ -105,6 +108,8 @@ $(document).ready(function () {
     }
     if (e.target.matches(".cart_item_left")) {
       let btn = e.target;
+      let href = $(".cart_item_left").attr("hreff");
+
       let btnnum = btn.parentElement.children[1];
       let valcar = btnnum.innerHTML;
       let newvalue = parseInt(valcar) - 1;
@@ -123,7 +128,7 @@ $(document).ready(function () {
           JSON.parse(data).forEach(function (item, index) {
             number += +item.soluong;
             summoney += item.soluong * item.price;
-            loadCart(item);
+            loadCart(item, href);
             totalCart[index].textContent = formatMoney(item.total) + "đ";
 
             // console.log(number);
@@ -141,27 +146,30 @@ $(document).ready(function () {
   bodyCart.addEventListener("click", function (e) {
     if (e.target.matches(".cart_item_right")) {
       let btn = e.target;
+      let href = e.target.getAttribute("hreff");
+
+      console.log(href);
       let btnnum = btn.parentElement.children[1];
       let valcar = btnnum.innerHTML;
       let newvalue = parseInt(valcar) + 1;
       btnnum.innerHTML = newvalue;
       let id = e.target.parentNode.parentNode.parentNode.parentNode.dataset.id;
-      // console.log(id);
+      console.log(id);
       console.log(e.target.parentNode.parentNode.parentNode.parentNode);
       //   console.log(newvalue);
 
       $.post(
-        "./Ajax/increAndDecre",
+        href + "/Ajax/increAndDecre",
         { soluong: newvalue, id_pro: id },
         function (data) {
-          console.log(JSON.parse(data));
+          console.log(data);
           container.innerHTML = "";
           let number = 0;
           let summoney = 0;
           JSON.parse(data).forEach(function (item) {
             number += +item.soluong;
             summoney += item.soluong * item.price;
-            loadCart(item);
+            loadCart(item, href);
             // console.log(number);
           });
           number_cart.textContent = number;
@@ -172,6 +180,10 @@ $(document).ready(function () {
     }
     if (e.target.matches(".cart_item_left")) {
       let btn = e.target;
+      // let href = $(".cart_item_left").attr("hreff");
+      let href = e.target.getAttribute("hreff");
+
+      console.log(href);
       let btnnum = btn.parentElement.children[1];
       let valcar = btnnum.innerHTML;
       let newvalue = parseInt(valcar) - 1;
@@ -181,7 +193,7 @@ $(document).ready(function () {
       btnnum.innerHTML = newvalue;
       let id = e.target.parentNode.parentNode.parentNode.parentNode.dataset.id;
       $.post(
-        "./Ajax/increAndDecre",
+        href + "/Ajax/increAndDecre",
         { soluong: newvalue, id_pro: id },
         function (data) {
           container.innerHTML = "";
@@ -190,7 +202,7 @@ $(document).ready(function () {
           JSON.parse(data).forEach(function (item) {
             number += +item.soluong;
             summoney += item.soluong * item.price;
-            loadCart(item);
+            loadCart(item, href);
             // console.log(number);
           });
           number_cart.textContent = number;
@@ -216,12 +228,12 @@ $(document).ready(function () {
   });
   let removeCartItem = document.querySelector(".body_cart_page");
 
-  function loadCartPage(item) {
+  function loadCartPage(item, href) {
     let template = `
     
     <tr data-id2="${item.id}">
     <td>
-        <a href=""><img src="./uploads/${item.image}" alt=""></a>
+        <a href=""><img src="${href}/uploads/${item.image}" alt=""></a>
         <span class="name_item_cart">${item.name}</span>
     </td>
     <td class="text-center">${item.price}</td>
@@ -246,6 +258,9 @@ $(document).ready(function () {
   removeCartItem?.addEventListener("click", function (e) {
     if (e.target.matches(".remove_item_cart i")) {
       let id = e.target.parentNode.dataset.id;
+      let href = removeCartItem
+        .querySelector(".cart_item_right")
+        .getAttribute("hreff");
       console.log(id);
       $.post("./Ajax/removeItem", { id_pro: id }, function (data) {
         console.log(JSON.parse(data));
@@ -258,8 +273,8 @@ $(document).ready(function () {
         JSON.parse(data).forEach(function (item) {
           number += +item.soluong;
           summoney += item.soluong * item.price;
-          loadCart(item);
-          loadCartPage(item);
+          loadCart(item, href);
+          loadCartPage(item, href);
           // console.log(number);
         });
         number_cart.textContent = number;
@@ -268,9 +283,25 @@ $(document).ready(function () {
         tthang.textContent = formatMoney(summoney) + "đ";
         thanhtien.textContent = formatMoney(summoney) + "đ";
         tamtinh.textContent = formatMoney(summoney) + "đ";
-        toastr.success("Đã xóa thành công", "Thông báo", {
-          timeOut: 3000,
-          closeButton: true,
+        // toastr.success("Đã xóa thành công", "Thông báo", {
+        //   timeOut: 1500,
+        //   closeButton: true,
+        // });
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "Xóa sản phẩm thành công!",
         });
       });
     }

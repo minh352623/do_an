@@ -88,7 +88,7 @@
             
                                                         <p class="price">' . product_price($item['price'])  . '</p>
                                                         <div data-id="' . $item['id'] . '" class="add-to-cart cart_sale">
-                                                            <a href=""><i class="fa fa-bag-shopping"></i></a>
+                                                            <a href="" hreff="' . _WEB_HOST_ROOT . '"><i class="fa fa-bag-shopping"></i></a>
             
                                                         </div>
                                                         <p class="info_item_sale">' . $item['name'] . '</p>
@@ -108,7 +108,7 @@
     
                                                         <p class="price">' . product_price($item['price'])  . '</p>
                                                         <div data-id="' . $item['id'] . '" class="add-to-cart cart_sale  cart_sale_child">
-                                                            <a href=""><i class="fa fa-bag-shopping"></i></a>
+                                                            <a href="" hreff="' . _WEB_HOST_ROOT . '"><i class="fa fa-bag-shopping"></i></a>
     
                                                         </div>
                                                         <p class="info_item_sale">' . $item['name'] . '</p>
@@ -149,7 +149,7 @@
             
                                                         <p class="price">' . product_price($item['price'])  . '</p>
                                                         <div data-id="' . $item['id'] . '" class="add-to-cart cart_sale">
-                                                            <a href=""><i class="fa fa-bag-shopping"></i></a>
+                                                            <a href="" hreff="' . _WEB_HOST_ROOT . '"><i class="fa fa-bag-shopping"></i></a>
             
                                                         </div>
                                                         <p class="info_item_sale">' . $item['name'] . '</p>
@@ -169,7 +169,7 @@
     
                                                         <p class="price">' . product_price($item['price'])  . '</p>
                                                         <div data-id="' . $item['id'] . '" class="add-to-cart cart_sale  cart_sale_child">
-                                                            <a href=""><i class="fa fa-bag-shopping"></i></a>
+                                                            <a href="" hreff="' . _WEB_HOST_ROOT . '"><i class="fa fa-bag-shopping"></i></a>
     
                                                         </div>
                                                         <p class="info_item_sale">' . $item['name'] . '</p>
@@ -226,7 +226,7 @@
                         <span class="price">' . product_price($item['price'])  . '</span>
                     </div>
                     <div class="add-to-cart" data-id="' . $item['id'] . '">
-                        <a href="" ><i class="fa fa-bag-shopping"></i></a>
+                        <a href="" hreff="' . _WEB_HOST_ROOT . '"><i class="fa fa-bag-shopping"></i></a>
     
                     </div>
                   

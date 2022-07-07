@@ -65,13 +65,17 @@ class ProductModel extends DB
 
         $check = 0;
         if (!empty($_SESSION['cart'])) {
+
             foreach ($_SESSION['cart'] as $key => $item) {
-                if ($item['id'] == $id) {
-                    $item['soluong']++;
-                    $item['total'] = $item['soluong'] * $item['price'];
-                    $itemNew = $item;
-                    $keyNew  = $key;
-                    $check = 1;
+                if (isset($item['id']) && $item['id']) {
+
+                    if ($item['id'] == $id) {
+                        $item['soluong']++;
+                        $item['total'] = $item['soluong'] * $item['price'];
+                        $itemNew = $item;
+                        $keyNew  = $key;
+                        $check = 1;
+                    }
                 }
             }
             if ($check == 1) {

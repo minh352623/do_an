@@ -26,21 +26,32 @@
 
                     </div>
                     <div class="product_detail_number mt-5">
-                        <h3>Số lượng</h3>
-                        <div class="cart_list_left product_detail_number-list fs-3">
+                        <h3>Số lượng:
+
+
+                            <span class="text-danger">
+
+                                Chỉ còn 1 sản phẩm
+                            </span>
+                        </h3>
+                        <div class="cart_list_left product_detail_number-list fs-3 mt-3">
                             <div class="cart_item_left  cart_item_number fs-3">-</div>
                             <span class="num_cart fs-3">1</span>
                             <div class="cart_item_right cart_item_number fs-3">+</div>
+
                         </div>
                     </div>
                     <div class="product_detail_action mt-5">
-                        <div class="product_detail_add" data-id="<?php echo $data['product']['id'] ?>">THÊM VÀO GIỎ</div>
+                        <div class="product_detail_add" hreff="<?php echo _WEB_HOST_ROOT  ?>" data-id="<?php echo $data['product']['id'] ?>">THÊM VÀO GIỎ</div>
                         <button class="product_detail_buy">MUA HÀNG</button>
 
                     </div>
-                    <div class="product_detail_descriptoin mt-5">
+                    <div class="product_detail_descriptoin mt-4">
                         <p>Giới thiệu</p>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic iste neque eos adipisci blanditiis, consectetur eveniet fugiat incidunt, soluta cum tenetur quas doloribus minima? Sapiente soluta laudantium temporibus. Dolorem, dolores!</p>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic iste neque eos adipisci blanditiis, consectetur eveniet fugiat incidunt, soluta cum tenetur quas doloribus minima? Sapiente soluta laudantium temporibus. Dolorem, dolores!</p>
+
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
                 </div>
             </div>
@@ -62,7 +73,7 @@
                     </div>
                     
                     <div class="add-to-cart" data-id="' . $item['id'] . '">
-                    <p ><i class="fa fa-bag-shopping"></i></p>
+                         <a href="" hreff="' . _WEB_HOST_ROOT . '"><i class="fa fa-bag-shopping"></i></a>
 
                 </div>
     

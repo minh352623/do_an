@@ -129,7 +129,9 @@
                         <?php
                         if (isset($_SESSION['cart'])) {
                             foreach ($_SESSION['cart'] as $item) {
-                                echo '<div class="product_item" data-id="' . $item['id'] . '">
+                                if (isset($item['id']) && $item['id']) {
+
+                                    echo '<div class="product_item" data-id="' . $item['id'] . '">
                                 <div class="product_item_img">
                                     <img src="' . _WEB_HOST_ROOT . '/uploads/' . $item['image'] . '" alt="">
                                 </div>
@@ -139,9 +141,9 @@
                         
                                     <div class="number_price">
                                         <div class="cart_list_left">
-                                            <div class="cart_item_left cart_item_number">-</div>
+                                            <div hreff="' . _WEB_HOST_ROOT . '" class="cart_item_left cart_item_number">-</div>
                                             <span class="num_cart">' . $item['soluong'] . '</span>
-                                            <div class="cart_item_right cart_item_number">+</div>
+                                            <div hreff="' . _WEB_HOST_ROOT . '" class="cart_item_right cart_item_number">+</div>
                                         </div>
                         
                                         <div class="price_cart">
@@ -151,6 +153,7 @@
                         
                                 </div>
                             </div>';
+                                }
                             }
                         }
 
@@ -167,7 +170,10 @@
                             if (isset($_SESSION['cart'])) {
                                 $money = 0;
                                 foreach ($_SESSION['cart'] as $item) {
-                                    $money += $item['soluong'] * $item['price'];
+                                    if (isset($item['id']) && $item['id']) {
+
+                                        $money += $item['soluong'] * $item['price'];
+                                    }
                                 }
                                 echo '<span>Tổng cộng: <b>' . product_price($money) . '</b></span>';
                             }
@@ -214,6 +220,8 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.1/toastr.min.js"></script>
             <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
+
             <script src="<?php echo _WEB_HOST_TEMPLATE . '/js/main.js' ?>"></script>
             <script src="<?php echo _WEB_HOST_TEMPLATE . '/js/footer.js' ?>"></script>
 

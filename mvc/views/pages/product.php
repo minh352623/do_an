@@ -71,7 +71,7 @@
                         <span class="price">' . product_price($item['price'])  . '</span>
                     </div>
                     <div data-id="' . $item['id'] . '" class="add-to-cart">
-                        <a href="' . _WEB_HOST_ROOT . '/Product/addProduct"><i class="fa fa-bag-shopping"></i></a>
+                        <a hreff="' . _WEB_HOST_ROOT . '" href=""><i class="fa fa-bag-shopping"></i></a>
     
                     </div>
                   

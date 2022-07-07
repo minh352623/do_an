@@ -15,6 +15,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/base.css' ?>">
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
+
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/style.css' ?>">
 
     <link rel="stylesheet" href="<?php echo _WEB_HOST_TEMPLATE . '/css/product.css' ?>">

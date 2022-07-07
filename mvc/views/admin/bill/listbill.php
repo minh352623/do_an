@@ -2,7 +2,7 @@
     <div class="row frmtitle mb10 mb-3">
         <h1>DANH SÁCH ĐƠN HÀNG</h1>
     </div>
-    <form action="<?php _WEB_HOST_ROOT . '/Admin/list_bill' ?>" method="post" class="form_filter pr-4">
+    <form action="<?php echo _WEB_HOST_ROOT . '/Admin/list_bill' ?>" method="post" class="form_filter pr-4">
         <div class="row mb-3">
             <div class="col-lg-2">
                 <a href="<?php echo _WEB_HOST_ROOT . '/Admin/list_bill' ?>" class="btn w-100  btn-info">Tất cả</a>

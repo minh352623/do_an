@@ -31,7 +31,10 @@ class Payment extends Controller
 
                 //insert chitiet don hang $ idbill
                 foreach ($_SESSION['cart'] as $item) {
-                    $this->bill->insert_detail_bill($_SESSION['user']['id'], $item['id'], $item['image'], $item['name'], $item['price'], $item['soluong'], $item['total'], $idBill);
+                    if (isset($item['id']) && $item['id']) {
+
+                        $this->bill->insert_detail_bill($_SESSION['user']['id'], $item['id'], $item['image'], $item['name'], $item['price'], $item['soluong'], $item['total'], $idBill);
+                    }
                 }
                 $bill = $this->bill->load_one_bill($idBill);
                 $detailBill = $this->bill->load_detail_bill($idBill);
